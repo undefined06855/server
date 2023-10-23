@@ -6,9 +6,14 @@ const server = http.createServer((req, res) => {
     let url = req.url
     for (let string of Object.keys(endpoints.match))
     {
-        console.log(string)
+        if (url.match(string))
+        {
+            serverEndRequest(res, endpoints.match[string])
+            return
+        }
     }
-    serverEndRequest(res, "hi")
+
+    serverEndRequest(res, "404 :(")
 })
 
 function run()
