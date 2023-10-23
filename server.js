@@ -4,7 +4,7 @@ let endpoints = {}
 
 const server = http.createServer((req, res) => {
     let url = req.url
-    for (let string of endpoints)
+    for (let string of Object.keys(endpoints))
     {
         console.log(string)
     }
