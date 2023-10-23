@@ -1,0 +1,8 @@
+{
+    "endpoints": {
+        "match": {
+            "/": "hello :)",
+            "/what": "what?"
+        }
+    }
+}
