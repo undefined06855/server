@@ -19,7 +19,7 @@ const server = http.createServer((req, res) => {
         let script = endpoints.javascript[string]
         if (url == string)
         {
-            serverEndRequest(res, eval("(() => {%SCRIPTS%})()".replace("%SCRIPTS%", script).toString()))
+            serverEndRequest(res, eval("(() => {%SCRIPTS%})()".replace("%SCRIPTS%", script)).toString())
             return
         }
     }
