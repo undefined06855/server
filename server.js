@@ -4,6 +4,10 @@ let endpoints = {}
 
 const server = http.createServer((req, res) => {
     let url = req.url
+    for (let string of endpoints)
+    {
+        console.log(string)
+    }
     serverEndRequest(res, "hi")
 })
 
