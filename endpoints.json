@@ -3,6 +3,9 @@
         "match": {
             "/": "hello :)",
             "/what": "what?"
+        },
+        "javascript": {
+            "/javascripttest": "return 6 + 9 * 6 + 9"
         }
     }
 }

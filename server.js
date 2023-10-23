@@ -6,12 +6,24 @@ const server = http.createServer((req, res) => {
     let url = req.url
     for (let string of Object.keys(endpoints.match))
     {
+        let output = endpoints.match[string]
         if (url == string)
         {
-            serverEndRequest(res, endpoints.match[string])
+            serverEndRequest(res, output)
             return
         }
     }
+
+    for (let string of Object.keys(endpoints.javascript))
+    {
+        let script = endpoints.javascript[string]
+        if (url == string)
+        {
+            serverEndRequest(res, eval("(() => {%SCRIPTS%})()".replace("%SCRIPTS%", script)))
+            return
+        }
+    }
+
 
     serverEndRequest(res, "404 :(")
 })
