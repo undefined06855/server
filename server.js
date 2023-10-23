@@ -6,6 +6,8 @@ const server = http.createServer((req, res) => {
     let url = req.url
     for (let string of Object.keys(endpoints.match))
     {
+        string = string.replace("/", "\/")
+        
         if (url.match(string))
         {
             serverEndRequest(res, endpoints.match[string])
